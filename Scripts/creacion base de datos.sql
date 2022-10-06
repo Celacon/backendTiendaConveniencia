@@ -649,60 +649,19 @@ create index RELATIONSHIP_26_FK on TBL_PEDIDO (
 
 
 
+
 /*==============================================================*/
-/* Table: TBL_KARDEX                                            */
+/* Table: TBL_TIPO_MOVIMIENTO                                   */
 /*==============================================================*/
-create table TBL_KARDEX (
-   ID_KARDEX            INTEGER               not null,
-   ID_PRODUCTO          NUMBER                not null,
+create table TBL_TIPO_MOVIMIENTO (
    ID_TIPO_MOVIMIENTO   INTEGER               not null,
-   FECHA_MOV            DATE                  not null,
-   CANT_INGRESO         INTEGER               not null,
-   CANT_SALIDA          INTEGER               not null,
-   SALDO_ACTUAL         INTEGER               not null,
-   constraint PK_TBL_KARDEX primary key (ID_KARDEX)
+   TIPO_MOVIMIENTO      VARCHAR2(50)          not null,
+   STS_TIPO_MOVIMIENTO  INTEGER               not null,
+   constraint PK_TBL_TIPO_MOVIMIENTO primary key (ID_TIPO_MOVIMIENTO)
 );
 
-/*==============================================================*/
-/* Index: TIPO_MOV_KARDEX_FK                                    */
-/*==============================================================*/
-create index TIPO_MOV_KARDEX_FK on TBL_KARDEX (
-   ID_TIPO_MOVIMIENTO ASC
-);
 
-/*==============================================================*/
-/* Index: PRODUCTO_KARDEX_FK                                    */
-/*==============================================================*/
-create index PRODUCTO_KARDEX_FK on TBL_KARDEX (
-   ID_PRODUCTO ASC
-);
 
-/*==============================================================*/
-/* Table: TBL_MOVIMIENTO_INV_DET                                */
-/*==============================================================*/
-create table TBL_MOVIMIENTO_INV_DET (
-   ID_PRODUCTO          NUMBER                not null,
-   ID_MOVIMENTO         INTEGER               not null,
-   ID_TIENDA            NUMBER                not null,
-   CANTIDAD_MOVIMIENTO  INTEGER               not null,
-   COSTO_MOVIMIENTO     NUMBER(8,2)           not null,
-   constraint PK_TBL_MOVIMIENTO_INV_DET primary key (ID_PRODUCTO, ID_MOVIMENTO, ID_TIENDA)
-);
-
-/*==============================================================*/
-/* Index: MOVIMIENTO_ENC_MOV_DET_FK                             */
-/*==============================================================*/
-create index MOVIMIENTO_ENC_MOV_DET_FK on TBL_MOVIMIENTO_INV_DET (
-   ID_MOVIMENTO ASC,
-   ID_TIENDA ASC
-);
-
-/*==============================================================*/
-/* Index: PRODUCTO_MOV_DET_FK                                   */
-/*==============================================================*/
-create index PRODUCTO_MOV_DET_FK on TBL_MOVIMIENTO_INV_DET (
-   ID_PRODUCTO ASC
-);
 
 /*==============================================================*/
 /* Table: TBL_MOVIMIENTO_INV_ENC                                */
@@ -731,6 +690,91 @@ create index TIENDA_MOV_INV_ENC_FK on TBL_MOVIMIENTO_INV_ENC (
    ID_TIENDA ASC
 );
 
+alter table TBL_MOVIMIENTO_INV_ENC
+   add constraint FK_TBL_MOVI_TIENDA_MO_TBL_TIEN foreign key (ID_TIENDA)
+      references TBL_TIENDA (ID_TIENDA);
+
+alter table TBL_MOVIMIENTO_INV_ENC
+   add constraint FK_TBL_MOVI_TIPO_MOVI_TBL_TIPO foreign key (ID_TIPO_MOVIMIENTO)
+      references TBL_TIPO_MOVIMIENTO (ID_TIPO_MOVIMIENTO);
+
+
+
+
+
+/*==============================================================*/
+/* Table: TBL_MOVIMIENTO_INV_DET                                */
+/*==============================================================*/
+create table TBL_MOVIMIENTO_INV_DET (
+   ID_PRODUCTO          NUMBER                not null,
+   ID_MOVIMENTO         INTEGER               not null,
+   ID_TIENDA            NUMBER                not null,
+   CANTIDAD_MOVIMIENTO  INTEGER               not null,
+   COSTO_MOVIMIENTO     NUMBER(8,2)           not null,
+   constraint PK_TBL_MOVIMIENTO_INV_DET primary key (ID_PRODUCTO, ID_MOVIMENTO, ID_TIENDA)
+);
+
+/*==============================================================*/
+/* Index: MOVIMIENTO_ENC_MOV_DET_FK                             */
+/*==============================================================*/
+create index MOVIMIENTO_ENC_MOV_DET_FK on TBL_MOVIMIENTO_INV_DET (
+   ID_MOVIMENTO ASC,
+   ID_TIENDA ASC
+);
+
+/*==============================================================*/
+/* Index: PRODUCTO_MOV_DET_FK                                   */
+/*==============================================================*/
+create index PRODUCTO_MOV_DET_FK on TBL_MOVIMIENTO_INV_DET (
+   ID_PRODUCTO ASC
+);
+
+alter table TBL_MOVIMIENTO_INV_DET
+   add constraint FK_TBL_MOVI_MOVIMIENT_TBL_MOVI foreign key (ID_MOVIMENTO, ID_TIENDA)
+      references TBL_MOVIMIENTO_INV_ENC (ID_MOVIMENTO, ID_TIENDA);
+
+alter table TBL_MOVIMIENTO_INV_DET
+   add constraint FK_TBL_MOVI_PRODUCTO__TBL_PROD foreign key (ID_PRODUCTO)
+      references TBL_PRODUCTO (ID_PRODUCTO);
+
+
+
+
+/*==============================================================*/
+/* Table: TBL_KARDEX                                            */
+/*==============================================================*/
+create table TBL_KARDEX (
+   ID_KARDEX            INTEGER               not null,
+   ID_PRODUCTO          NUMBER                not null,
+   ID_TIPO_MOVIMIENTO   INTEGER               not null,
+   FECHA_MOV            DATE                  not null,
+   CANT_INGRESO         INTEGER               not null,
+   CANT_SALIDA          INTEGER               not null,
+   SALDO_ACTUAL         INTEGER               not null,
+   constraint PK_TBL_KARDEX primary key (ID_KARDEX)
+);
+
+/*==============================================================*/
+/* Index: TIPO_MOV_KARDEX_FK                                    */
+/*==============================================================*/
+create index TIPO_MOV_KARDEX_FK on TBL_KARDEX (
+   ID_TIPO_MOVIMIENTO ASC
+);
+
+/*==============================================================*/
+/* Index: PRODUCTO_KARDEX_FK                                    */
+/*==============================================================*/
+create index PRODUCTO_KARDEX_FK on TBL_KARDEX (
+   ID_PRODUCTO ASC
+);
+
+alter table TBL_KARDEX
+   add constraint FK_TBL_KARD_PRODUCTO__TBL_PROD foreign key (ID_PRODUCTO)
+      references TBL_PRODUCTO (ID_PRODUCTO);
+
+alter table TBL_KARDEX
+   add constraint FK_TBL_KARD_TIPO_MOV__TBL_TIPO foreign key (ID_TIPO_MOVIMIENTO)
+      references TBL_TIPO_MOVIMIENTO (ID_TIPO_MOVIMIENTO);
 
 
 /==============================================================/
