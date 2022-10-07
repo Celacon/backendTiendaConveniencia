@@ -43,6 +43,70 @@ public class VentaDetalle implements Serializable{
 	
 	@Column(name = "SUB_TOTAL")
 	private Integer subTotal;
+
+	public Integer getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(Integer idProducto) {
+		this.idProducto = idProducto;
+	}
+
+	public Integer getIdVenta() {
+		return idVenta;
+	}
+
+	public void setIdVenta(Integer idVenta) {
+		this.idVenta = idVenta;
+	}
+
+	public String getSerie() {
+		return serie;
+	}
+
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public Integer getIdTienda() {
+		return idTienda;
+	}
+
+	public void setIdTienda(Integer idTienda) {
+		this.idTienda = idTienda;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Integer getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Integer precio) {
+		this.precio = precio;
+	}
+
+	public Integer getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Integer subTotal) {
+		this.subTotal = subTotal;
+	}
 	
 	
 	
