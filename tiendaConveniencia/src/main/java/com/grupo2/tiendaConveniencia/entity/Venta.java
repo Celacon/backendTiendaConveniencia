@@ -30,6 +30,86 @@ public class Venta implements Serializable {
 	@Column(name = "ID_CLIENTE")
 	private Integer idCliente;
 	
+	public Integer getIdVenta() {
+		return idVenta;
+	}
+
+	public void setIdVenta(Integer idVenta) {
+		this.idVenta = idVenta;
+	}
+
+	public Integer getIdTienda() {
+		return idTienda;
+	}
+
+	public void setIdTienda(Integer idTienda) {
+		this.idTienda = idTienda;
+	}
+
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public Integer getIdTipoPago() {
+		return idTipoPago;
+	}
+
+	public void setIdTipoPago(Integer idTipoPago) {
+		this.idTipoPago = idTipoPago;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Integer getSerieCorrelativo() {
+		return serieCorrelativo;
+	}
+
+	public void setSerieCorrelativo(Integer serieCorrelativo) {
+		this.serieCorrelativo = serieCorrelativo;
+	}
+
+	public Integer getIdPersona() {
+		return idPersona;
+	}
+
+	public void setIdPersona(Integer idPersona) {
+		this.idPersona = idPersona;
+	}
+
+	public Date getFechaFactura() {
+		return fechaFactura;
+	}
+
+	public void setFechaFactura(Date fechaFactura) {
+		this.fechaFactura = fechaFactura;
+	}
+
+	public Integer getTotalFactura() {
+		return totalFactura;
+	}
+
+	public void setTotalFactura(Integer totalFactura) {
+		this.totalFactura = totalFactura;
+	}
+
+	public String getTipoVenta() {
+		return tipoVenta;
+	}
+
+	public void setTipoVenta(String tipoVenta) {
+		this.tipoVenta = tipoVenta;
+	}
+
 	@Column(name = "ID_TIPO_PAGO")
 	private Integer idTipoPago;
 	
