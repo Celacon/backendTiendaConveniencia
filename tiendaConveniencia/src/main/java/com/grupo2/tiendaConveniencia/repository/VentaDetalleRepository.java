@@ -10,5 +10,5 @@ import com.grupo2.tiendaConveniencia.entity.VentaDetalle;
 @Repository("ventaDetalleRepository")
 
 public interface VentaDetalleRepository extends JpaRepository<VentaDetalle, Serializable> {
-
+	
 }
