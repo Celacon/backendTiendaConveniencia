@@ -20,20 +20,26 @@ public class VentaDetalle implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "ID_PRODUCTO")
-	private Integer idProducto;
+	@Column(name = "ID_UBICACION")
+	private Integer idUbicacion;
 	
-	@Column(name = "ID_VENTA")
-	private Integer idVenta;
+	@Column(name = "ID_GASOLINERA")
+	private Integer idGasolinera;
 	
-	@Column(name = "SERIE")
-	private String serie;
+	@Column(name = "ID_TIENDA")
+	private Integer idTienda;
 	
 	@Column(name = "ID_CATEGORIA")
 	private Integer idCategoria;
 	
-	@Column(name = "ID_TIENDA")
-	private Integer idTienda;
+	@Column(name = "SERIE")
+	private String serie;
+	
+	@Column(name = "ID_CLIENTE")
+	private Integer idCliente;
+	
+	@Column(name = "ID_PRODUCTO")
+	private Integer idProducto;
 	
 	@Column(name = "CANTIDAD")
 	private Integer cantidad;
@@ -44,28 +50,28 @@ public class VentaDetalle implements Serializable{
 	@Column(name = "SUB_TOTAL")
 	private Integer subTotal;
 
-	public Integer getIdProducto() {
-		return idProducto;
+	public Integer getIdUbicacion() {
+		return idUbicacion;
 	}
 
-	public void setIdProducto(Integer idProducto) {
-		this.idProducto = idProducto;
+	public void setIdUbicacion(Integer idUbicacion) {
+		this.idUbicacion = idUbicacion;
 	}
 
-	public Integer getIdVenta() {
-		return idVenta;
+	public Integer getIdGasolinera() {
+		return idGasolinera;
 	}
 
-	public void setIdVenta(Integer idVenta) {
-		this.idVenta = idVenta;
+	public void setIdGasolinera(Integer idGasolinera) {
+		this.idGasolinera = idGasolinera;
 	}
 
-	public String getSerie() {
-		return serie;
+	public Integer getIdTienda() {
+		return idTienda;
 	}
 
-	public void setSerie(String serie) {
-		this.serie = serie;
+	public void setIdTienda(Integer idTienda) {
+		this.idTienda = idTienda;
 	}
 
 	public Integer getIdCategoria() {
@@ -76,12 +82,28 @@ public class VentaDetalle implements Serializable{
 		this.idCategoria = idCategoria;
 	}
 
-	public Integer getIdTienda() {
-		return idTienda;
+	public String getSerie() {
+		return serie;
 	}
 
-	public void setIdTienda(Integer idTienda) {
-		this.idTienda = idTienda;
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public Integer getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(Integer idProducto) {
+		this.idProducto = idProducto;
 	}
 
 	public Integer getCantidad() {
@@ -108,6 +130,5 @@ public class VentaDetalle implements Serializable{
 		this.subTotal = subTotal;
 	}
 	
-	
-	
+
 }

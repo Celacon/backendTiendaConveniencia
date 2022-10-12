@@ -21,21 +21,56 @@ public class Venta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "ID_VENTA")
-	private Integer idVenta;
+	@Column(name = "ID_UBICACION")
+	private Integer idUbicacion;
+	
+	@Column(name = "ID_GASOLINERA")
+	private Integer idGasolinera;
 	
 	@Column(name = "ID_TIENDA")
 	private Integer idTienda;
 	
+	@Column(name = "FECHA_FACTURA")
+	private Date fechaFactura;
+	
 	@Column(name = "ID_CLIENTE")
 	private Integer idCliente;
 	
-	public Integer getIdVenta() {
-		return idVenta;
+	@Column(name = "ID_PERSONA")
+	private Integer idPersona;
+	
+	@Column(name = "SERIE")
+	private String nombre;
+	
+	@Column(name = "SERIE_CORRELATIVO")
+	private Integer serieCorrelativo;
+	
+	@Column(name = "ID_TIPO_PAGO")
+	private Integer idTipoPago;
+	
+	@Column(name = "ID_STATUS")
+	private Integer idStatus;
+	
+	@Column(name = "TOTAL_FACTURA")
+	private Integer totalFactura;
+	
+	@Column(name = "TIPO_VENTA")
+	private String tipoVenta;
+
+	public Integer getIdUbicacion() {
+		return idUbicacion;
 	}
 
-	public void setIdVenta(Integer idVenta) {
-		this.idVenta = idVenta;
+	public void setIdUbicacion(Integer idUbicacion) {
+		this.idUbicacion = idUbicacion;
+	}
+
+	public Integer getIdGasolinera() {
+		return idGasolinera;
+	}
+
+	public void setIdGasolinera(Integer idGasolinera) {
+		this.idGasolinera = idGasolinera;
 	}
 
 	public Integer getIdTienda() {
@@ -46,6 +81,14 @@ public class Venta implements Serializable {
 		this.idTienda = idTienda;
 	}
 
+	public Date getFechaFactura() {
+		return fechaFactura;
+	}
+
+	public void setFechaFactura(Date fechaFactura) {
+		this.fechaFactura = fechaFactura;
+	}
+
 	public Integer getIdCliente() {
 		return idCliente;
 	}
@@ -54,12 +97,12 @@ public class Venta implements Serializable {
 		this.idCliente = idCliente;
 	}
 
-	public Integer getIdTipoPago() {
-		return idTipoPago;
+	public Integer getIdPersona() {
+		return idPersona;
 	}
 
-	public void setIdTipoPago(Integer idTipoPago) {
-		this.idTipoPago = idTipoPago;
+	public void setIdPersona(Integer idPersona) {
+		this.idPersona = idPersona;
 	}
 
 	public String getNombre() {
@@ -78,20 +121,20 @@ public class Venta implements Serializable {
 		this.serieCorrelativo = serieCorrelativo;
 	}
 
-	public Integer getIdPersona() {
-		return idPersona;
+	public Integer getIdTipoPago() {
+		return idTipoPago;
 	}
 
-	public void setIdPersona(Integer idPersona) {
-		this.idPersona = idPersona;
+	public void setIdTipoPago(Integer idTipoPago) {
+		this.idTipoPago = idTipoPago;
 	}
 
-	public Date getFechaFactura() {
-		return fechaFactura;
+	public Integer getIdStatus() {
+		return idStatus;
 	}
 
-	public void setFechaFactura(Date fechaFactura) {
-		this.fechaFactura = fechaFactura;
+	public void setIdStatus(Integer idStatus) {
+		this.idStatus = idStatus;
 	}
 
 	public Integer getTotalFactura() {
@@ -109,28 +152,6 @@ public class Venta implements Serializable {
 	public void setTipoVenta(String tipoVenta) {
 		this.tipoVenta = tipoVenta;
 	}
-
-	@Column(name = "ID_TIPO_PAGO")
-	private Integer idTipoPago;
-	
-	@Column(name = "SERIE")
-	private String nombre;
-	
-	@Column(name = "SERIE_CORRELATIVO")
-	private Integer serieCorrelativo;
-	
-	@Column(name = "ID_PERSONA")
-	private Integer idPersona;
-	
-	@Column(name = "FECHA_FACTURA")
-	private Date fechaFactura;
-	
-	@Column(name = "TOTAL_FACTURA")
-	private Integer totalFactura;
-	
-	@Column(name = "TIPO_VENTA")
-	private String tipoVenta;
-	
 	
 	
 }

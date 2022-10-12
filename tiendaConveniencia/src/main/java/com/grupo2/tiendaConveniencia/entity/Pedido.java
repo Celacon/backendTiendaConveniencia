@@ -20,42 +20,32 @@ public class Pedido implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "ID_TIENDA")
-	private Integer idTienda;
-	
-	@Column(name = "U_PADRE")
-	private Integer uPadre;
-	
 	@Column(name = "ID_UBICACION")
 	private Integer idUbicacion;
 	
-	@Column(name = "ID_VENTA")
-	private Integer idVenta;
+	@Column(name = "ID_GASOLINERA")
+	private Integer idGasolinera;
+	
+	@Column(name = "ID_TIENDA")
+	private Integer idTienda;
+	
+	@Column(name = "ID_CLIENTE")
+	private Integer idCliente;
+	
+	@Column(name = "SERIE")
+	private String serie;
+	
+	@Column(name = "ID_STATUS")
+	private Integer idStatus;
+	
+	@Column(name = "SERIE_CORRELATIVO")
+	private Integer serieCorrelativo;
 	
 	@Column(name = "IDICACION_DESPACHO")
 	private String idicacionDespacho;
 	
 	@Column(name = "OBS_DESPACHO")
 	private String obsDespacho;
-	
-	@Column(name = "STS_DESPACHO")
-	private Integer stsDespacho;
-
-	public Integer getIdTienda() {
-		return idTienda;
-	}
-
-	public void setIdTienda(Integer idTienda) {
-		this.idTienda = idTienda;
-	}
-
-	public Integer getuPadre() {
-		return uPadre;
-	}
-
-	public void setuPadre(Integer uPadre) {
-		this.uPadre = uPadre;
-	}
 
 	public Integer getIdUbicacion() {
 		return idUbicacion;
@@ -65,12 +55,52 @@ public class Pedido implements Serializable{
 		this.idUbicacion = idUbicacion;
 	}
 
-	public Integer getIdVenta() {
-		return idVenta;
+	public Integer getIdGasolinera() {
+		return idGasolinera;
 	}
 
-	public void setIdVenta(Integer idVenta) {
-		this.idVenta = idVenta;
+	public void setIdGasolinera(Integer idGasolinera) {
+		this.idGasolinera = idGasolinera;
+	}
+
+	public Integer getIdTienda() {
+		return idTienda;
+	}
+
+	public void setIdTienda(Integer idTienda) {
+		this.idTienda = idTienda;
+	}
+
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public String getSerie() {
+		return serie;
+	}
+
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
+	public Integer getIdStatus() {
+		return idStatus;
+	}
+
+	public void setIdStatus(Integer idStatus) {
+		this.idStatus = idStatus;
+	}
+
+	public Integer getSerieCorrelativo() {
+		return serieCorrelativo;
+	}
+
+	public void setSerieCorrelativo(Integer serieCorrelativo) {
+		this.serieCorrelativo = serieCorrelativo;
 	}
 
 	public String getIdicacionDespacho() {
@@ -88,15 +118,6 @@ public class Pedido implements Serializable{
 	public void setObsDespacho(String obsDespacho) {
 		this.obsDespacho = obsDespacho;
 	}
-
-	public Integer getStsDespacho() {
-		return stsDespacho;
-	}
-
-	public void setStsDespacho(Integer stsDespacho) {
-		this.stsDespacho = stsDespacho;
-	}
-	
 	
 
 }
