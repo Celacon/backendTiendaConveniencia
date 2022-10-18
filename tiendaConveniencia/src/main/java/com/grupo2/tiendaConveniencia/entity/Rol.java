@@ -31,7 +31,7 @@ public class Rol implements Serializable{
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
 	
-	@Column(name = "STS_ROL")
+	@Column(name = "ID_STATUS")
 	private Integer stsRol;
 
 	public Integer getIdRol() {

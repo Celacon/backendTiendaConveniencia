@@ -12,40 +12,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.grupo2.tiendaConveniencia.entity.Persona;
-
-import com.grupo2.tiendaConveniencia.repository.PersonaRepository;
-
+import com.grupo2.tiendaConveniencia.entity.Rol;
+import com.grupo2.tiendaConveniencia.repository.RolRepository;
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/rol")
 @CrossOrigin
-public class PersonaService {
+public class RolService {
+	@Autowired
+	RolRepository rolRepository;
 	
-	@Autowired	
-	PersonaRepository personaRepository;
 	
 	@GetMapping(path = "/buscar")
-	public List<Persona> buscar() {
-		return personaRepository.findAll();
+	public List<Rol> buscar() {
+		return rolRepository.findAll();
 	}
 
 	
 	@PostMapping(path = "/guardar")
-	public Persona guardar (@RequestBody Persona persona) {	
-		personaRepository.save(persona);;
-		return persona;		
+	public Rol guardar (@RequestBody Rol rol) {	
+		rolRepository.save(rol);;
+		return rol;		
 	}
 	
 	
-	@DeleteMapping(path = "/eliminar/{idPersona}")
-	public void eliminar(@PathVariable ("idPersona") Integer idPersona) {
-		Optional<Persona> persona = personaRepository.findById(idPersona);
-		if (persona.isPresent()) {
-			personaRepository.delete(persona.get());
+	@DeleteMapping(path = "/eliminar/{idRol}")
+	public void eliminar(@PathVariable ("idRol") Integer idRol) {
+		Optional<Rol> rol = rolRepository.findById(idRol);
+		if (rol.isPresent()) {
+			rolRepository.delete(rol.get());
 		}
 	}
-	
-
 }

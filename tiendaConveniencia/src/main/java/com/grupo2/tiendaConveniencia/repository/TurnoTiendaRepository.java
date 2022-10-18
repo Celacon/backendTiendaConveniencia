@@ -5,10 +5,9 @@ import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.grupo2.tiendaConveniencia.entity.Rol;
+import com.grupo2.tiendaConveniencia.entity.TurnoTienda;
 
-
-@Repository("rolRepository")
-public interface RolRepository extends JpaRepository <Rol, Serializable> {
+@Repository("turnoTiendaRepository")
+public interface TurnoTiendaRepository extends JpaRepository<TurnoTienda, Serializable>{
 
 }

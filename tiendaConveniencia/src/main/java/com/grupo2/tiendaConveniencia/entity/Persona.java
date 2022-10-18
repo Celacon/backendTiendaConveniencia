@@ -2,24 +2,19 @@ package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TBL_PERSONA")
+
 public class Persona implements Serializable{
 
 	/**
@@ -48,8 +43,12 @@ public class Persona implements Serializable{
 	@Column(name = "SEGUNDO_APELLIDO")
 	private String segundoApellido;
 	
-	@Column(name = "DOCUMENTO_IDENTIFICACION")
-	private String documentoIdentificacion;
+	@Column(name = "ID_TIPO_DOCUMENTO")
+	private Integer idTipoDocumento;
+	
+	@Column(name = "DOCUMENTO")
+	private String documento;
+	
 	
 	@Column(name = "NIT")
 	private String nit;
@@ -72,15 +71,12 @@ public class Persona implements Serializable{
 	@Column(name = "DIRECCION")
 	private String direccion;
 	
-	@Column(name = "DIRECCION_FACTURACION")
-	private String direccionFacturacion;
-
-	@OneToOne(fetch = FetchType.LAZY)
-	  @MapsId
-	  @JoinColumn(name = "idPersona")
-	private Empleado empleado;
 	
-
+	
+	 @ManyToOne
+	 @JoinColumn(name = "ID_TIPO_DOCUMENTO", insertable=false, updatable = false)
+	private TipoDocumento tipoDocumento;
+	 
 	public Integer getIdPersona() {
 		return idPersona;
 	}
@@ -129,12 +125,14 @@ public class Persona implements Serializable{
 		this.segundoApellido = segundoApellido;
 	}
 
-	public String getDocumentoIdentificacion() {
-		return documentoIdentificacion;
+	
+
+	public Integer getIdTipoDocumento() {
+		return idTipoDocumento;
 	}
 
-	public void setDocumentoIdentificacion(String documentoIdentificacion) {
-		this.documentoIdentificacion = documentoIdentificacion;
+	public void setIdTipoDocumento(Integer idTipoDocumento) {
+		this.idTipoDocumento = idTipoDocumento;
 	}
 
 	public String getNit() {
@@ -193,26 +191,23 @@ public class Persona implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public String getDireccionFacturacion() {
-		return direccionFacturacion;
+	public String getDocumento() {
+		return documento;
 	}
 
-	public void setDireccionFacturacion(String direccionFacturacion) {
-		this.direccionFacturacion = direccionFacturacion;
+	public void setDocumento(String documento) {
+		this.documento = documento;
 	}
 
-	public Empleado getEmpleado() {
-		return empleado;
+	public TipoDocumento getTipoDocumento() {
+		return tipoDocumento;
 	}
 
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
+	public void setTipoDocumento(TipoDocumento tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
 	}
 
-
-
-
-
+	
 	
 	
 }

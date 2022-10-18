@@ -6,13 +6,14 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -31,23 +32,34 @@ public class Empleado implements Serializable{
 	
 	@Column(name = "ID_EMPLEADO")
 	private Integer idEmpleado;
-
-	@Column(name = "ID_PERSONA")
-	private Integer idPersona;
 	
+	@Column(name = "ID_PERSONA")
+	private Integer idPersonae;
+
 	@Column(name = "FECHA_INGRESO")
 	private Date fechaIngreso;
 	
-	@Column(name = "STS_EMPLEADO")
-	private Integer stsEmpleado;
-	
-/*	@OneToOne(fetch = FetchType.LAZY)
-	  @MapsId
-	  @JoinColumn(name = "idPersona")
-	 // private Persona persona;
-	*/
+	@Column(name = "ID_STATUS")
+	private Integer idStatus;
 
-	
+	@OneToOne(cascade = CascadeType.ALL,optional=false)
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona",insertable=false, updatable=false)
+	private Persona persona;
+		public Persona getPersona() {
+	return persona;
+}
+
+public void setPersona(Persona persona) {
+	this.persona = persona;
+}
+	public Integer getIdPersonae() {
+		return idPersonae;
+	}
+
+	public void setIdPersonae(Integer idPersonae) {
+		this.idPersonae = idPersonae;
+	}
+
 
 
 	public Integer getIdEmpleado() {
@@ -58,16 +70,6 @@ public class Empleado implements Serializable{
 		this.idEmpleado = idEmpleado;
 	}
 
-	
-
-	public Integer getIdPersona() {
-		return idPersona;
-	}
-
-	public void setIdPersona(Integer idPersona) {
-		this.idPersona = idPersona;
-	}
-
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
@@ -76,20 +78,12 @@ public class Empleado implements Serializable{
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public Integer getStsEmpleado() {
-		return stsEmpleado;
+	public Integer getIdStatus() {
+		return idStatus;
 	}
 
-	public void setStsEmpleado(Integer stsEmpleado) {
-		this.stsEmpleado = stsEmpleado;
+	public void setIdStatus(Integer idStatus) {
+		this.idStatus = idStatus;
 	}
-
-	
-
-
-	
-
-
-	
 	
 }
