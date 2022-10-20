@@ -1,0 +1,123 @@
+
+--CONFIGURACIÓN DE PARÁMETRO PARA PODER CREAR ROLES CON LOS NOMBRES PERSONALIZADOS
+alter session set "_ORACLE_SCRIPT"=true;
+
+
+/************************************************************************/
+
+-------------------- CREACIÓN DE ROL ADMINISTRADOR ----------------------------
+
+/************************************************************************/
+
+CREATE ROLE administrador;
+
+GRANT ALL PRIVILEGES TO administrador;
+
+GRANT INSERT ON C##TIENDA.TBL_USUARIO TO ADMINISTRADOR;
+GRANT UPDATE ON C##TIENDA.TBL_USUARIO TO ADMINISTRADOR;
+GRANT DELETE ON C##TIENDA.TBL_USUARIO TO ADMINISTRADOR;
+
+
+commit;
+
+
+/************************************************************************/
+
+-------------------- CREACIÓN DE ROL VENDEDOR ----------------------------
+
+/************************************************************************/
+
+CREATE ROLE vendedor;
+
+-- ASIGNANDO LOS PERMISOS NECESARIOS A LAS TABLAS QUE EL ROL VENDEDOR
+-- TENDRÁ ACCESO
+
+GRANT SELECT ON C##TIENDA.TBL_USUARIO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_ROL TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_CLIENTE TO vendedor; 
+GRANT INSERT ON C##TIENDA.TBL_BITACORA TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_KARDEX TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_PEDIDO TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_VENTA TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_VENTA_DETALLE TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_SERIE TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIENDA_PRODUCTO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_MOVIMIENTO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_PAGO TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_UBICACION TO vendedor; 
+
+
+/************************************************************************/
+
+-------------------- CREACIÓN DE ROL ENCARGADO ----------------------------
+
+/************************************************************************/
+
+CREATE ROLE encargado;
+
+-- ASIGNANDO LOS PERMISOS NECESARIOS A LAS TABLAS QUE EL ROL ENCARGADO
+-- TENDRÁ ACCESO
+
+GRANT SELECT ON C##TIENDA.TBL_USUARIO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_ROL TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_CLIENTE TO vendedor; 
+GRANT INSERT ON C##TIENDA.TBL_BITACORA TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_KARDEX TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_PEDIDO TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_VENTA TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_VENTA_DETALLE TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_SERIE TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIENDA_PRODUCTO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_MOVIMIENTO TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_PAGO TO vendedor; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_UBICACION TO vendedor; 
+GRANT SELECT ON C##TIENDA.TBL_USUARIO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_ROL TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_CLIENTE TO cliente; 
+GRANT INSERT ON C##TIENDA.TBL_BITACORA TO cliente; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_PEDIDO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_TIENDA_PRODUCTO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_PAGO TO cliente; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_UBICACION TO cliente;      
+
+
+/************************************************************************/
+
+-------------------- CREACIÓN DE ROL CLIENTE ----------------------------
+
+/************************************************************************/
+
+CREATE ROLE cliente;
+
+-- ASIGNANDO LOS PERMISOS NECESARIOS A LAS TABLAS QUE EL ROL CLIENTE
+-- TENDRÁ ACCESO
+
+GRANT SELECT ON C##TIENDA.TBL_USUARIO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_ROL TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_CLIENTE TO cliente; 
+GRANT INSERT ON C##TIENDA.TBL_BITACORA TO cliente; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_PEDIDO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_TIENDA_PRODUCTO TO cliente; 
+GRANT SELECT ON C##TIENDA.TBL_TIPO_PAGO TO cliente; 
+GRANT SELECT
+     ,INSERT ON C##TIENDA.TBL_UBICACION TO cliente; 
+
+-- CREACIÓN DE USUARIO CLIENTE GENÉRICO PARA LA CREACIÓN DEL PEDIDO
+-- EL ALTA DEL CLIENTE QUE HACE LA COMPRA SERÁ A NIVEL DE APLICACIÓN
+-- ES DECIR QUE TODOS LOS CLIENTES QUE PIDAN WEB ESTARÁN UTILIZANDO ESTE ROL Y 
+-- USUARIO
+
+commit;
