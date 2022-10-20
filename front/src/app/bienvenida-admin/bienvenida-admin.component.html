@@ -1,0 +1,127 @@
+<body>
+    <br><br><br><br>
+    <div class="container-fluid">
+      <span class="h3  btn-dark btn-lg ">Bienvenido  {{usuario.usuario}}</span>
+     
+      
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+         
+          <!-- Links -->
+          <ul class="navbar-nav">
+         
+        
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             PROFESORES
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionProfesor()">CREACION DE PROFESOR</a>
+                  <a class="dropdown-item" href="/consultaProfesor">CONSULTA DE PROFESOR</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             ALUMNOS
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="creacionAlumno()">CREACION DE ALUMNO</a>
+                <a class="dropdown-item" href="/consultaAlumno">CONSULTA DE ALUMNO</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             CURSOS
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionCurso()">CREACION DE CURSO</a>
+                  <a class="dropdown-item" href="/consultaCurso">CONSULTA DE CURSO</a>
+               
+                
+      
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             ASIGNACIÓN
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionAsignaciones()">CREACION DE ASIGNACIONES</a>
+                  <a class="dropdown-item" href="/consultaAsignacion">CONSULTA DE ASIGNACIONES</a>
+               
+                
+      
+               
+              </div>
+            </li>
+            <button type="button" class="btn btn-danger btn-lg float-right" (click)="salir()">SALIR</button>
+          </ul>
+        </nav>
+        <br>
+          
+      
+      </div>
+
+      <section class="cards">
+
+        <article class="card card--1">  
+           
+            <div class="card__img"></div>
+            <a  class="card_link">
+                <div class="card__img--hover"></div>
+            </a>
+            <div class="card__info">
+                <span class="card__category">UNIVERSIDAD MARIANO GALVEZ DE GUATEMALA</span>
+                <br>
+                <span class="card__by">ALUMNO: <a href="" class="card__author" title="">CARLOS ERNESTO LACÓN MARTIN</a></span>
+                <br>
+                <span class="card__by">CARNET: <a href="" class="card__author" title="">3190-20-4518</a></span>
+                <br>
+                <span class="card__by">CURSO: <a href="" class="card__author" title="">PROGRAMACIÓN II</a></span>
+                <br>
+                <span class="card__by">SECCIÓN: <a href="" class="card__author" title="">"A"</a></span>
+            </div>
+        </article>
+        
+     
+        
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+</body>
+
+
+
+
+
+
+
+ 

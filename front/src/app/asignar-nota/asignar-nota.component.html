@@ -1,0 +1,74 @@
+<body>
+ 
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>Asignación de Nota 
+                            <div *ngIf="loading"class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </h3>
+
+
+                        <form id="creacionForm" (ngSubmit)="agregarAsignacion()">
+                            <input type="text"   disabled=»disabled» class="form-control-lg mt-3"[(ngModel)]="asignaciones.idasignacion"  placeholder="ID"[ngModelOptions]="{standalone:true}" required>
+                         
+                            <input type="number" max="100" min="0" class="form-control form-control-lg " [(ngModel)]="asignaciones.nota"  placeholder="Nota"[ngModelOptions]="{standalone:true}" >
+                            <select disabled=»disabled» type="text" class="form-control form-control-lg " [(ngModel)]="asignaciones.alumnoIdcarnet"  [ngModelOptions]="{standalone:true}" requered>
+                         <option ></option>
+                         <option *ngFor="let usu of alumnos" [value]="usu.idcarnet">{{usu.nombreAlumno}} </option>
+                            </select>
+                            <select disabled=»disabled»  type="text" class="form-control form-control-lg " [(ngModel)]="asignaciones.cursoIdcurso"  [ngModelOptions]="{standalone:true}" requered>
+                                <option ></option>
+                                <option *ngFor="let cur of cursos" [value]="cur.idcurso">{{cur.nombreCurso}} </option>
+                                   </select>
+                                   <div class="mt-3">
+                                    <button type="text" class="btn btn-danger btn-lg mr-3" (click)="volver()">Volver</button>
+                                    <button type="submit" class="btn btn-info btn-lg">Agregar Nota</button> 
+                                </div>
+                          
+                        </form>
+                        
+                       
+                    </div>
+                    <button class="btn btn-danger btn-lg float-right" (click)="volverBienvenidaProfesor()"  >Volver a la Bienvenida</button>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

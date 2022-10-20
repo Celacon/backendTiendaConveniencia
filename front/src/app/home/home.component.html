@@ -1,0 +1,38 @@
+
+
+<body>
+     
+
+          <div class="container-fluid">
+            <div class="header">
+              <h1>Log In</h1>
+            </div>   
+            
+              <ng-container *ngIf="session;else loginform">
+
+                  <h1>
+                    EL USUARIO HA INGRESADO EXITOSAMENTE CON EL ROL DE:
+                  </h1>
+
+
+              </ng-container>
+             
+              <div class="container">
+
+              </div>
+
+              <ng-template #loginform>
+                
+                <form (ngSubmit)= "formularioLogin()" id="login-form">
+                    <input type="usuario" [(ngModel)]="usuario.usuario" placeholder="Usuario" [ngModelOptions]="{standalone:true}" required>
+                    <input type="password" [(ngModel)]="usuario.clave" placeholder="Clave" [ngModelOptions]="{standalone:true}" required>              
+                  <br>
+                  <input  class = "iniciar" type ="submit"  value = "Iniciar Sesion" >
+                </form>
+
+              </ng-template>
+          </div>
+          
+   
+      
+</body>
