@@ -12,6 +12,8 @@ COMMIT;
 -- drop role ningun_privilegio;
 create role ningun_privilegio;
 
+alter session set "_ORACLE_SCRIPT"=true;
+drop user spring CASCADE;
 
 -- drop user spring;
 CREATE USER spring IDENTIFIED BY boot; --creación
@@ -28,10 +30,11 @@ GRANT administrador TO spring;
 GRANT cliente TO spring
 
 
-ALTER USER spring DEFAULT ROLE administrador; -- se conectga sin ningún privilegio
+ALTER USER spring DEFAULT ROLE usuario_conexion; -- se conectga sin ningún privilegio
 
 /* pruebas desde el usuario Spring
 
+    SET ROLE administrador;
     SET ROLE ningun_privilegio;
     SET ROLE usuario_conexion;
     SET ROLE vendedor;

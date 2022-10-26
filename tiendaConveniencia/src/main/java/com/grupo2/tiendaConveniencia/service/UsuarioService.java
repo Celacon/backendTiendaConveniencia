@@ -3,6 +3,11 @@ package com.grupo2.tiendaConveniencia.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,6 +32,7 @@ import com.grupo2.tiendaConveniencia.repository.UsuarioRepository;
 @RequestMapping("/usuario")
 
 public class UsuarioService {
+	
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
@@ -47,20 +53,42 @@ public class UsuarioService {
 				return usuarioRepository.findByUsuario(usuario);		
 			}
 	
+			
+
 	
 	//Service #8: Save/Update user
 	@PostMapping (path = "/grabar")
 	public Usuario grabar (@RequestBody Usuario usuario) {
 		
-		if (VariablesGlobales.idRolSesion.equals("admin")) {
+	
+		//validación previa a cualquier operación con una conexión dedicada al rol seteado
+		
+		//VariablesGlobales.adminRoles(VariablesGlobales.idRolSesion);
+		
+		
+		if(VariablesGlobales.idRolSesion.equals("admin")){
 			try {
 				run("set role administrador");
+				
+				VariablesGlobales.idRolSesion = "admin";
+				
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+				
+	
+		
+		System.out.println("desde el servicio var global .. " + VariablesGlobales.idRolSesion);
+		
+		//inicia encriptación de clave
+		
 
+		
+		//finaliza encriptación
+		
 		usuarioRepository.save(usuario);
 		return usuario;
 	}
