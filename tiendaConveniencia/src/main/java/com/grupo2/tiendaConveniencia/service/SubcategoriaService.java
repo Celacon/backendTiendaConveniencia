@@ -1,10 +1,13 @@
 package com.grupo2.tiendaConveniencia.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +33,13 @@ public class SubcategoriaService {
 	public Subcategoria guardar (@RequestBody Subcategoria subcategoria) {	
 		subcategoriaRepository.save(subcategoria);;
 		return subcategoria;		
+	}
+	
+	@DeleteMapping(path ="/eliminar/{id_subcategoria}")
+	public void eliminar (@PathVariable("id_subcategoria") Integer idSubcategoria) {
+		Optional<Subcategoria>subcategoria = subcategoriaRepository.findById(idSubcategoria);
+		subcategoriaRepository.delete(subcategoria.get());
+		System.out.print("Registro eliminado. Codigo ----" + idSubcategoria);
+
 	}
 }

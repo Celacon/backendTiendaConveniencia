@@ -13,35 +13,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo2.tiendaConveniencia.entity.Producto;
-import com.grupo2.tiendaConveniencia.repository.ProductoRepository;
+import com.grupo2.tiendaConveniencia.entity.Tienda;
+import com.grupo2.tiendaConveniencia.repository.TiendaRepository;
 
 @RestController
-@RequestMapping("/producto")
+@RequestMapping("/tienda")
 @CrossOrigin
-public class ProductoService {
+
+public class TiendaService {
+
 	@Autowired
-	ProductoRepository productoRepository;
+	TiendaRepository tiendaRepository;
 	
 	
 	@GetMapping(path = "/buscar")
-	public List<Producto> buscar() {
-		return productoRepository.findAll();
+	public List<Tienda>buscar(){
+		return tiendaRepository.findAll();
 	}
-
 	
 	@PostMapping(path = "/guardar")
-	public Producto guardar (@RequestBody Producto producto) {	
-		productoRepository.save(producto);
-		return producto;		
+	public Tienda guardar (@RequestBody Tienda tienda) {
+		tiendaRepository.save(tienda);
+		return tienda;
 	}
 	
-	@DeleteMapping(path ="/eliminar/{id_producto}")
-	public void eliminar (@PathVariable("id_producto") Integer idProducto) {
-		Optional<Producto>producto = productoRepository.findById(idProducto);
-		productoRepository.delete(producto.get());
-		System.out.print("Registro eliminado. Codigo ----" + idProducto);
+	@DeleteMapping(path = "/eliminar/{id_tienda}")
+	public void eliminar (@PathVariable("id_tienda") Integer idTienda) {
+		Optional<Tienda>tienda = tiendaRepository.findById(idTienda);
+		tiendaRepository.delete(tienda.get());
+		System.out.print("Registro eliminado. Codigo ----" + idTienda);
 
 	}
-	
 }

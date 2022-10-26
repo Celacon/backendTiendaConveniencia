@@ -1,15 +1,12 @@
 package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,22 +24,23 @@ public class Subcategoria implements Serializable{
 	@Column(name = "ID_SUB_CATEGORIA")
 	private Integer idSubcategoria;
 	
-	public List<Producto> getProductoSubCaList() {
+/*	public List<Producto> getProductoSubCaList() {
 		return productoSubCaList;
 	}
 	public void setProductoSubCaList(List<Producto> productoSubCaList) {
 		this.productoSubCaList = productoSubCaList;
 	}
+*/	
 	@Column(name = "ID_CATEGORIA")
 	private String idCategoria;
 	
 	@Column(name = "SUB_CATEGORIA")
 	private String subCategoria;
 	
-	@OneToMany(mappedBy = "idSubcategoria")
+/*	@OneToMany(mappedBy = "idSubcategoria")
 	private List<Producto> productoSubCaList;
 	
-	
+*/	
 
 	public Integer getIdSubcategoria() {
 		return idSubcategoria;

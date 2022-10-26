@@ -1,15 +1,12 @@
 package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -34,7 +31,7 @@ public class Categoria implements Serializable{
 	private String categoria;
 	
 	
-	 @OneToMany(mappedBy = "idCategoria")
+/*	 @OneToMany(mappedBy = "idCategoria")
 	private List<Subcategoria> subCategoriaList;
 	  
 
@@ -45,7 +42,7 @@ public class Categoria implements Serializable{
 	public void setSubCategoriaList(List<Subcategoria> subCategoriaList) {
 		this.subCategoriaList = subCategoriaList;
 	}
-
+*/
 	public Integer getIdCategoria() {
 		return idCategoria;
 	}
