@@ -1,6 +1,7 @@
 package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,6 @@ public class Producto implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	
 	@Column(name = "ID_PRODUCTO")
 	private Integer idProducto;
 	
@@ -31,17 +32,42 @@ public class Producto implements Serializable{
 	@Column(name = "ID_SUB_CATEGORIA")
 	private Integer idSubcategoria;
 	
+	@Column(name = "ID_CATEGORIA")
+	private Integer idCategoria;
+	
 	@Column(name = "PRODUCTO")
 	private String producto;
 	
-	@Column(name = "STS_PRODUCTO")
-	private Integer stsProducto;
-	
 	@Column(name = "PRECIO")
 	private Double precio;
+	
+	@Column(name = "ID_STATUS")
+	private Integer idStatus;
+	
+	
+	/*@OneToMany(mappedBy = "idTiendaProducto")
+	private List<TiendaProducto> tiendaProductoList; */
+	
+	
 
 	public Integer getIdProducto() {
 		return idProducto;
+	}
+
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public Integer getIdStatus() {
+		return idStatus;
+	}
+
+	public void setIdStatus(Integer idStatus) {
+		this.idStatus = idStatus;
 	}
 
 	public void setIdProducto(Integer idProducto) {
@@ -74,13 +100,6 @@ public class Producto implements Serializable{
 		this.producto = producto;
 	}
 
-	public Integer getStsProducto() {
-		return stsProducto;
-	}
-
-	public void setStsProducto(Integer stsProducto) {
-		this.stsProducto = stsProducto;
-	}
 
 	public Double getPrecio() {
 		return precio;

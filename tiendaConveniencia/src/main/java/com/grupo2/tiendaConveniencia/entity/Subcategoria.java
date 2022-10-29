@@ -27,23 +27,25 @@ public class Subcategoria implements Serializable{
 	@Column(name = "ID_SUB_CATEGORIA")
 	private Integer idSubcategoria;
 	
-	public List<Producto> getProductoSubCaList() {
-		return productoSubCaList;
-	}
-	public void setProductoSubCaList(List<Producto> productoSubCaList) {
-		this.productoSubCaList = productoSubCaList;
-	}
+	
 	@Column(name = "ID_CATEGORIA")
 	private String idCategoria;
 	
 	@Column(name = "SUB_CATEGORIA")
 	private String subCategoria;
 	
-	@OneToMany(mappedBy = "idSubcategoria")
+	/*@OneToMany(mappedBy = "idSubcategoria")
 	private List<Producto> productoSubCaList;
 	
 	
-
+	public List<Producto> getProductoSubCaList() {
+		return productoSubCaList;
+	}
+	
+	public void setProductoSubCaList(List<Producto> productoSubCaList) {
+		this.productoSubCaList = productoSubCaList;
+	}
+*/
 	public Integer getIdSubcategoria() {
 		return idSubcategoria;
 	}

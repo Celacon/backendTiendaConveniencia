@@ -31,8 +31,17 @@ public class Presentacion implements Serializable{
 	@Column(name = "PRESENTACION")
 	private String presentacion;
 	
-	@OneToMany(mappedBy = "idPresentacion")
+	/*@OneToMany(mappedBy = "idPresentacion")
 	private List<Producto> productoPreList;
+	
+	public List<Producto> getProductoPreList() {
+		return productoPreList;
+	}
+
+	public void setProductoPreList(List<Producto> productoPreList) {
+		this.productoPreList = productoPreList;
+	}
+	*/
 
 	public Integer getIdPresentacion() {
 		return idPresentacion;
@@ -50,13 +59,7 @@ public class Presentacion implements Serializable{
 		this.presentacion = presentacion;
 	}
 
-	public List<Producto> getProductoPreList() {
-		return productoPreList;
-	}
-
-	public void setProductoPreList(List<Producto> productoPreList) {
-		this.productoPreList = productoPreList;
-	}
+	
 
 
 	

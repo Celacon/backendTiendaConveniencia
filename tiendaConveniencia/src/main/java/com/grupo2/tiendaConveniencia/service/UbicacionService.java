@@ -28,7 +28,6 @@ public class UbicacionService {
 	@GetMapping(path = "/buscar")
 	public List<Ubicacion> buscar() {
 		return ubicacionRepository.findAll();
-		
 	}
 	
 	@PostMapping(path = "/guardar")
