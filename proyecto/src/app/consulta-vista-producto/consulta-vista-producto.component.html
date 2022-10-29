@@ -1,0 +1,51 @@
+
+<body>
+    <br>
+    <br>
+ 
+  <br>
+  
+  
+    <div class="container-fluid ">
+     
+      
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de Productos
+        <h5 style="margin-top: 30px;" *ngIf="prod.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      
+      <table *ngIf="prod.length > 0" class="table table-dark table-striped ">
+          <thead>
+          <tr>
+            <th scope="col">ID PRODUCTO</th>
+            <th scope="col">PRODUCTO</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">SUB CATEGORIA</th>
+            <th scope="col">PRESENTACION</th>
+            <th scope="col">PRECIO</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of prod  | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ datos.idProducto }}</th>
+            <td>{{ datos.producto}}</td>
+            <td>{{ datos.categoria}}</td>
+            <td>{{ datos.sub_Categoria }}</td>
+            <td>{{ datos.presentacion }}</td>
+            <td>{{ datos.precio }}</td>
+            <td>
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver</button>
+      
+      
+      
+     
+      </div>
+  
+  </body>

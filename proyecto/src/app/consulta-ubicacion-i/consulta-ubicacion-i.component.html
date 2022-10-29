@@ -1,0 +1,50 @@
+<body>
+    <div class="container-fluid ">
+     
+      <br>
+      <br>
+      <br>
+      <h1 class="h3  btn-dark btn-lg justify-content-center">UBICACIONES
+        <h5 style="margin-top: 30px;" *ngIf="ubicacionesI.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      <button class="btn btn-dark btn-lg float-right" (click)="agregarBoton()">Agregar</button>
+      
+      <table *ngIf="ubicacionesI.length > 0" class="table table-dark table-striped ">
+          <thead>
+          <tr>
+           
+            <th scope="col">ID </th>
+            <th scope="col">UBICAION</th>
+            <th scope="col">U PADRE</th>
+            <th scope="col">ID TIPO UBICACION</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of ubicacionesI  | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ datos.idUbicacion }}</th>
+            <td>{{ datos.ubicacion}}</td>
+            <td>{{ datos.uPadre }}</td>
+            <td>{{ datos.idTipoUbicacion }}</td>
+      
+            <td>
+              <i class="fas fa-trash btn btn-danger mr-2"(click)="eliminar(datos)"></i>
+            
+  
+  
+  
+            <i class="fas fa-user-edit btn btn-info"(click)="editar(datos)"></i>
+            </td>
+           
+            
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver a la Bienvenida</button>
+      </div>
+  
+  </body>

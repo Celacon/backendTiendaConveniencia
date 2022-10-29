@@ -1,0 +1,49 @@
+
+<body>
+    <br>
+    <br>
+ 
+  <br>
+  
+  
+    <div class="container-fluid ">
+     
+      
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de Ubicaciones
+        <h5 style="margin-top: 30px;" *ngIf="ubicaciones.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      
+      <table *ngIf="ubicaciones.length > 0" class="table table-dark table-striped ">
+          <thead>
+          <tr>
+            <th scope="col">ID VISTA</th>
+            <th scope="col">TIPO UBICACION PADRE</th>
+            <th scope="col">UBICACION</th>
+            <th scope="col">TIPO UBICACION HIJO</th>
+            <th scope="col">UBICACION HIJO</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of ubicaciones  | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ datos.idVistaUbicacion }}</th>
+            <td>{{ datos.tipoubicacionpadre}}</td>
+            <td>{{ datos.ubicacion}}</td>
+            <td>{{ datos.tipoUbicacionHijo }}</td>
+            <td>{{ datos.ubicacionJerarquica }}</td>
+            <td>
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver</button>
+      
+      
+      
+     
+      </div>
+  
+  </body>

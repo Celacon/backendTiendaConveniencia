@@ -1,0 +1,99 @@
+<body>
+    <br><br><br><br>
+    <div class="container-fluid">
+      <h1>Prototipo Tienda de Conveniencia</h1>
+      <span class="h3  btn-dark btn-lg ">Bienvenido  {{usuario.usuario}}</span>
+     
+      
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+         
+          <!-- Links -->
+          <ul class="navbar-nav">
+         
+        
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+                PRODUCTOS
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item"  href="/consultaProducto">PRODUCTOS</a>
+                  <a class="dropdown-item" href="/consultaVistaProducto">CONSULTA DE PRODUCTOS</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             UBICACIONES
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="creacionAlumno()">CREACION DE UBICACIONES</a>
+                <a class="dropdown-item" href="/consultaUbicacion">CONSULTA DE UBICACIONES</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             PRESENTACIONES
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionCurso()">CREACION DE PRESENTACIONES</a>
+                  <a class="dropdown-item" href="/consultaPresentacion">CONSULTA DE PRESENTACIONES</a>
+              </div>
+
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             SUB CATEGORIAS
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionAsignaciones()">CREACION DE SUB CATEGORIAS</a>
+                  <a class="dropdown-item" href="/consultaSubCategoria">CONSULTA DE SUB CATEGORIAS</a>
+               
+                
+      
+               
+              </div>
+            </li>
+            <button type="button" class="btn btn-danger btn-lg float-right" (click)="salir()">SALIR</button>
+          </ul>
+        </nav>
+        <br>
+          
+      
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+</body>
+
+
+
+
+
+
+
+ 
