@@ -1,6 +1,7 @@
 package com.grupo2.tiendaConveniencia.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,29 +10,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.grupo2.tiendaConveniencia.entity.TiendaProducto;
-import com.grupo2.tiendaConveniencia.repository.TiendaProductoRepository;
+import com.grupo2.tiendaConveniencia.entity.Subcategoria;
+import com.grupo2.tiendaConveniencia.repository.SubcategoriaRepository;
 
 @RestController
-@RequestMapping("/tiendaProducto")
+@RequestMapping("/subcategoria")
 @CrossOrigin
-
-public class TiendaProductoService {
-	
+public class SubcategoriaService {
 	@Autowired
-	TiendaProductoRepository tiendaProductoRepository;
+	SubcategoriaRepository subcategoriaRepository;
 	
 	@GetMapping(path = "/buscar")
-	public List<TiendaProducto>buscar(){
-		return tiendaProductoRepository.findAll();
+	public List<Subcategoria> buscar() {
+		return subcategoriaRepository.findAll();
 	}
 
-	@PostMapping(path = "/guardar")
-	public TiendaProducto guardar (@RequestBody TiendaProducto tiendaProducto) {
-		tiendaProductoRepository.save(tiendaProducto);
-		return tiendaProducto;
-	}
 	
-
+	@PostMapping(path = "/guardar")
+	public Subcategoria guardar (@RequestBody Subcategoria subcategoria) {	
+		subcategoriaRepository.save(subcategoria);;
+		return subcategoria;		
+	}
 }

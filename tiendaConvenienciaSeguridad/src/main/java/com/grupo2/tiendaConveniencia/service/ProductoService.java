@@ -1,6 +1,7 @@
 package com.grupo2.tiendaConveniencia.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,28 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.grupo2.tiendaConveniencia.entity.TiendaProducto;
-import com.grupo2.tiendaConveniencia.repository.TiendaProductoRepository;
+import com.grupo2.tiendaConveniencia.entity.Producto;
+import com.grupo2.tiendaConveniencia.repository.ProductoRepository;
 
 @RestController
-@RequestMapping("/tiendaProducto")
+@RequestMapping("/producto")
 @CrossOrigin
-
-public class TiendaProductoService {
-	
+public class ProductoService {
 	@Autowired
-	TiendaProductoRepository tiendaProductoRepository;
+	ProductoRepository productoRepository;
+	
 	
 	@GetMapping(path = "/buscar")
-	public List<TiendaProducto>buscar(){
-		return tiendaProductoRepository.findAll();
+	public List<Producto> buscar() {
+		return productoRepository.findAll();
 	}
 
+	
 	@PostMapping(path = "/guardar")
-	public TiendaProducto guardar (@RequestBody TiendaProducto tiendaProducto) {
-		tiendaProductoRepository.save(tiendaProducto);
-		return tiendaProducto;
+	public Producto guardar (@RequestBody Producto producto) {	
+		productoRepository.save(producto);;
+		return producto;		
 	}
 	
-
 }

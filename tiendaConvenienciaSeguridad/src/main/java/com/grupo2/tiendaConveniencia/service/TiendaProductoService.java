@@ -33,5 +33,12 @@ public class TiendaProductoService {
 		return tiendaProducto;
 	}
 	
+/*	@DeleteMapping(path = "/eliminar/{id_tienda,id_producto}")
+	public void eliminar (@PathVariable("id_tienda,id_producto") Integer idTienda && idProducto) {
+		Optional<TiendaProducto>tiendaProducto = tiendaProductoRepository.findById(idTienda && idProducto);
+		tiendaProductoRepository.delete(tiendaProducto.get());
+		System.out.print("Registro eliminado. Codigo ----" + idTienda && idProducto);
 
+	}
+*/
 }
