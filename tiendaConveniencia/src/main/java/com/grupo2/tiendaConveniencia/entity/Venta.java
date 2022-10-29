@@ -2,6 +2,7 @@ package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,17 +18,13 @@ import javax.persistence.Table;
 
 public class Venta implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 	
+	
+	private static final long serialVersionUID = 6170409007612387957L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name = "ID_UBICACION")
-	private Integer idUbicacion;
-	
-	@Column(name = "ID_GASOLINERA")
-	private Integer idGasolinera;
-	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)	
 	@Column(name = "ID_TIENDA")
 	private Integer idTienda;
 	
@@ -36,11 +34,8 @@ public class Venta implements Serializable {
 	@Column(name = "ID_CLIENTE")
 	private Integer idCliente;
 	
-	@Column(name = "ID_PERSONA")
-	private Integer idPersona;
-	
 	@Column(name = "SERIE")
-	private String nombre;
+	private String serie;
 	
 	@Column(name = "SERIE_CORRELATIVO")
 	private Integer serieCorrelativo;
@@ -52,26 +47,10 @@ public class Venta implements Serializable {
 	private Integer idStatus;
 	
 	@Column(name = "TOTAL_FACTURA")
-	private Integer totalFactura;
+	private Double totalFactura;
 	
 	@Column(name = "TIPO_VENTA")
 	private String tipoVenta;
-
-	public Integer getIdUbicacion() {
-		return idUbicacion;
-	}
-
-	public void setIdUbicacion(Integer idUbicacion) {
-		this.idUbicacion = idUbicacion;
-	}
-
-	public Integer getIdGasolinera() {
-		return idGasolinera;
-	}
-
-	public void setIdGasolinera(Integer idGasolinera) {
-		this.idGasolinera = idGasolinera;
-	}
 
 	public Integer getIdTienda() {
 		return idTienda;
@@ -97,20 +76,12 @@ public class Venta implements Serializable {
 		this.idCliente = idCliente;
 	}
 
-	public Integer getIdPersona() {
-		return idPersona;
+	public String getSerie() {
+		return serie;
 	}
 
-	public void setIdPersona(Integer idPersona) {
-		this.idPersona = idPersona;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombre(String serie) {
+		this.serie = serie;
 	}
 
 	public Integer getSerieCorrelativo() {
@@ -137,11 +108,11 @@ public class Venta implements Serializable {
 		this.idStatus = idStatus;
 	}
 
-	public Integer getTotalFactura() {
+	public Double getTotalFactura() {
 		return totalFactura;
 	}
 
-	public void setTotalFactura(Integer totalFactura) {
+	public void setTotalFactura(Double totalFactura) {
 		this.totalFactura = totalFactura;
 	}
 

@@ -18,23 +18,17 @@ public class VentaDetalle implements Serializable{
 	private static final long serialVersionUID = 2L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "ID_UBICACION")
-	private Integer idUbicacion;
-	
-	@Column(name = "ID_GASOLINERA")
-	private Integer idGasolinera;
-	
 	@Column(name = "ID_TIENDA")
 	private Integer idTienda;
-	
-	@Column(name = "ID_CATEGORIA")
-	private Integer idCategoria;
 	
 	@Column(name = "SERIE")
 	private String serie;
 	
+	@Column(name = "SERIE_CORRELATIVO")
+	private Integer serieCorrelativo;
+
 	@Column(name = "ID_CLIENTE")
 	private Integer idCliente;
 	
@@ -50,22 +44,6 @@ public class VentaDetalle implements Serializable{
 	@Column(name = "SUB_TOTAL")
 	private Integer subTotal;
 
-	public Integer getIdUbicacion() {
-		return idUbicacion;
-	}
-
-	public void setIdUbicacion(Integer idUbicacion) {
-		this.idUbicacion = idUbicacion;
-	}
-
-	public Integer getIdGasolinera() {
-		return idGasolinera;
-	}
-
-	public void setIdGasolinera(Integer idGasolinera) {
-		this.idGasolinera = idGasolinera;
-	}
-
 	public Integer getIdTienda() {
 		return idTienda;
 	}
@@ -74,20 +52,20 @@ public class VentaDetalle implements Serializable{
 		this.idTienda = idTienda;
 	}
 
-	public Integer getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-
 	public String getSerie() {
 		return serie;
 	}
 
 	public void setSerie(String serie) {
 		this.serie = serie;
+	}
+	
+	public Integer getSerieCorrelativo() {
+		return serieCorrelativo;
+	}
+
+	public void setSerieCorrelativo(Integer serieCorrelativo) {
+		this.serieCorrelativo = serieCorrelativo;
 	}
 
 	public Integer getIdCliente() {
