@@ -1,0 +1,71 @@
+
+
+<body>
+    <br>
+    <br>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">BUSQUEDA</a>
+      
+      <div class="collapse navbar-collapse" id="mynavbar">
+       
+        <form class="d-flex" >
+          <input class="form-control me-2" type="text" placeholder="idTienda" [(ngModel)]="serieb.idTienda" [ngModelOptions]="{standalone:true}" required>
+          <input class="form-control me-2" type="text" placeholder="serie"[(ngModel)]="serieb.serie" [ngModelOptions]="{standalone:true}" required>
+         
+          <button (click)="buscar()" class="btn btn-primary">BUSCAR</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <br>
+  
+  
+    <div class="container-fluid ">
+     
+      
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de SERIE
+        <h5 style="margin-top: 30px;" *ngIf="series.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      <button class="btn btn-dark btn-lg float-right" (click)="agregarBoton()">Agregar</button>
+      
+      <table *ngIf="series.length > 0" class="table table-dark table-striped ">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID TIENDA</th>
+            <th scope="col">SERIE</th>
+            <th scope="col"></th>
+          
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let serie of series | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ series.idTienda}}</th>
+            <td>{{ series.serie }}</td>
+           
+           
+            <td>
+              <i class="fas fa-trash btn btn-danger mr-2"(click)="eliminar(series)"></i>
+            
+  
+  
+  
+            <i class="fas fa-user-edit btn btn-info"(click)="editar(series)"></i>
+            </td>
+           
+            
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver a la Bienvenida</button>
+      
+      
+      
+        

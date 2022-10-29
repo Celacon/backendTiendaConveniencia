@@ -1,0 +1,112 @@
+<body>
+    <br><br><br><br>
+    <div class="container-fluid">
+      <span class="h3  btn-dark btn-lg ">Bienvenido  {{usuario.usuario}}</span>
+     
+      
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+         
+          <!-- Links -->
+          <ul class="navbar-nav">
+         
+        
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+            
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             CLIENTE
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="cliente()">CREACION DE CLIENTE</a>
+                <a class="dropdown-item" href="/consultacliente">CONSULTA DE CLIENTES</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             SERIE
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="serie()">CREACION DE SERIE</a>
+                <a class="dropdown-item" href="/consultaserie">CONSULTA DE SERIES</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             TIPO PAGO
+            
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="tipopago()">CREACION DE TIPO DE PAGO</a>
+                <a class="dropdown-item" href="/consultapagos">CONSULTA DE TIPO DE PAGO</a>
+               
+              </div>
+            </li>
+
+
+            <button type="button" class="btn btn-danger btn-lg float-right" (click)="salir()">SALIR</button>
+          </ul>
+        </nav>
+        <br>
+          
+      
+      </div>
+
+      <section class="cards">
+
+        <article class="card card--1">  
+           
+            <div class="card__img"></div>
+            <a  class="card_link">
+                <div class="card__img--hover"></div>
+            </a>
+            <div class="card__info">
+                <span class="card__category">UNIVERSIDAD MARIANO GALVEZ DE GUATEMALA</span>
+                <br>
+                <span class="card__by">CURSO: <a href="" class="card__author" title="">BASE DE DATOS</a></span>
+                <br>
+            </div>
+        </article>
+        
+     
+        
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+</body>
+
+
+
+
+
+
+
+ 
