@@ -1,6 +1,8 @@
 package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ public class TurnoTiendaEmpleado implements Serializable{
 	 */
 	private static final long serialVersionUID = -6877642059993696042L;
 	@Id
+	@Basic(optional = false)
 	@Column(name = "ID_EMPLEADO")
 	private Integer idEmpleado;
 	

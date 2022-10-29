@@ -8,19 +8,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
-@Table(name = "TBL_PERSONA")
+@Table(name = "tbl_persona")
 
 public class Persona implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3485215657054403857L;
+	private static final long serialVersionUID = -3459326499128079164L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +56,8 @@ public class Persona implements Serializable{
 	@Column(name = "NIT")
 	private String nit;
 	
+    @DateTimeFormat(pattern = "yyyy-MM-dd")  
+    @JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_NACIMIENTO")
 	private Date fechaNacimiento;
 	
@@ -70,13 +75,7 @@ public class Persona implements Serializable{
 	
 	@Column(name = "DIRECCION")
 	private String direccion;
-	
-	
-	
-	 @ManyToOne
-	 @JoinColumn(name = "ID_TIPO_DOCUMENTO", insertable=false, updatable = false)
-	private TipoDocumento tipoDocumento;
-	 
+
 	public Integer getIdPersona() {
 		return idPersona;
 	}
@@ -125,14 +124,20 @@ public class Persona implements Serializable{
 		this.segundoApellido = segundoApellido;
 	}
 
-	
-
 	public Integer getIdTipoDocumento() {
 		return idTipoDocumento;
 	}
 
 	public void setIdTipoDocumento(Integer idTipoDocumento) {
 		this.idTipoDocumento = idTipoDocumento;
+	}
+
+	public String getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(String documento) {
+		this.documento = documento;
 	}
 
 	public String getNit() {
@@ -190,22 +195,8 @@ public class Persona implements Serializable{
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	
 
-	public String getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(String documento) {
-		this.documento = documento;
-	}
-
-	public TipoDocumento getTipoDocumento() {
-		return tipoDocumento;
-	}
-
-	public void setTipoDocumento(TipoDocumento tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
-	}
 
 	
 	

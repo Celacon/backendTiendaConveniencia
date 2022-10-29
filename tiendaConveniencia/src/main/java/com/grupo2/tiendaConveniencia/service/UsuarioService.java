@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,34 +14,200 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.grupo2.tiendaConveniencia.VariablesGlobales;
 import com.grupo2.tiendaConveniencia.entity.Usuario;
+
 import com.grupo2.tiendaConveniencia.repository.UsuarioRepository;
 
+
+
 @RestController
-@RequestMapping("/usuario")
 @CrossOrigin
+@RequestMapping("/usuario")
+
 public class UsuarioService {
+
 	@Autowired
 	UsuarioRepository usuarioRepository;
-
-@GetMapping(path = "/buscar")
-public List<Usuario> buscar(){
 	
-	return usuarioRepository.findAll();
-}
+	
+	@Value("${rolUsuarioLogueado}")
+	public String rolUsrLog;
 
-@PostMapping(path= "/guardar")
-public Usuario guardar (@RequestBody Usuario usuario) {
-	usuarioRepository.save(usuario);
-	return usuario;
-}
-
-
-@DeleteMapping(path = "/eliminar/{idUsuario}")
-public void eliminar(@PathVariable ("idUsuario") Integer idUsuario) {
-	Optional<Usuario> usuario = usuarioRepository.findById(idUsuario);
-	if (usuario.isPresent()) {
-		usuarioRepository.delete(usuario.get());
+	//Service #7: Search for all users in the table
+	@GetMapping(path = "/buscar")
+	public List<Usuario> search() {
+	    
+	    if (VariablesGlobales.idRolSesion.equals("admin")) {
+            try {
+                run("set role administrador");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("encargado")) {
+            try {
+                run("set role encargado");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("cajero")) {
+            try {
+                run("set role vendedor");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+	    
+		return usuarioRepository.findAll();		
+	
 	}
-}
+
+	
+	
+	//Search for user information
+			@GetMapping(path = "/bsucar/{usuario}")
+			public List<Usuario> searhStudentProfile(@PathVariable("usuario") String usuario) {
+			    
+			    if (VariablesGlobales.idRolSesion.equals("admin")) {
+		            try {
+		                run("set role administrador");
+		            } catch (Exception e) {
+		                // TODO Auto-generated catch block
+		                e.printStackTrace();
+		            }
+		        }else   if (VariablesGlobales.idRolSesion.equals("encargado")) {
+		            try {
+		                run("set role encargado");
+		            } catch (Exception e) {
+		                // TODO Auto-generated catch block
+		                e.printStackTrace();
+		            }
+		        }else   if (VariablesGlobales.idRolSesion.equals("cajero")) {
+		            try {
+		                run("set role vendedor");
+		            } catch (Exception e) {
+		                // TODO Auto-generated catch block
+		                e.printStackTrace();
+		            }
+		        }
+		        
+			    
+				return usuarioRepository.findByUsuario(usuario);		
+			}
+			
+			 //Search for user information
+            @GetMapping(path = "/buscar/por/{idPersona}")
+            public List<Usuario> buscarId(@PathVariable("idPersona") Integer idPersona) {
+                
+                if (VariablesGlobales.idRolSesion.equals("admin")) {
+                    try {
+                        run("set role administrador");
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }else   if (VariablesGlobales.idRolSesion.equals("encargado")) {
+                    try {
+                        run("set role encargado");
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }else   if (VariablesGlobales.idRolSesion.equals("cajero")) {
+                    try {
+                        run("set role vendedor");
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                
+                
+                return usuarioRepository.findByIdPersona(idPersona);        
+            }
+	
+	
+	//Service #8: Save/Update user
+	@PostMapping (path = "/grabar")
+	public Usuario grabar (@RequestBody Usuario usuario) {
+		
+	    if (VariablesGlobales.idRolSesion.equals("admin")) {
+            try {
+                run("set role administrador");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("encargado")) {
+            try {
+                run("set role encargado");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("cajero")) {
+            try {
+                run("set role vendedor");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+
+		usuarioRepository.save(usuario);
+		return usuario;
+	}
+	
+	//Service #9: Delete user
+	@DeleteMapping (path="/borrar/{idusuario}")
+	public void borrar (@PathVariable("idusuario") Integer idusuario) {
+	    if (VariablesGlobales.idRolSesion.equals("admin")) {
+            try {
+                run("set role administrador");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("encargado")) {
+            try {
+                run("set role encargado");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else   if (VariablesGlobales.idRolSesion.equals("cajero")) {
+            try {
+                run("set role vendedor");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+	    
+		Optional<Usuario> usuario = usuarioRepository.findById(idusuario);
+		if (usuario.isPresent()) {
+			usuarioRepository.delete(usuario.get());
+		}
+	}
+	
+	
+	
+	
+	 @Autowired
+	    private JdbcTemplate jdbcTemplate;
+	     
+	    public void run(String sql) throws Exception {
+	         
+	       jdbcTemplate.execute(sql);	           
+	       jdbcTemplate.execute("ALTER SESSION SET CURRENT_SCHEMA=C##TIENDA");      
+
+	    }
+		
 }

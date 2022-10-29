@@ -1,0 +1,64 @@
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>{{titulo}} 
+                            <div *ngIf="loading"class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </h3>
+                        
+                        <form id="creacionForm" (ngSubmit)="agregarPersona()">
+                            <input type=»text» *ngIf="Llenar"disabled=»disabled»  class="form-control-lg mt-3" [(ngModel)]="usuarios.idPersona"placeholder="Id"[ngModelOptions]="{standalone:true}" required>
+
+
+                           <!-- 
+                            <input type=»text»  *ngIf="Llenar2" class="form-control-lg mt-3" [(ngModel)]="usuarios.idPersona"placeholder="Id"[ngModelOptions]="{standalone:true}" required>
+                            
+                           --> <input type="text"  *ngIf="Llenar" class="form-control-lg mt-3"[(ngModel)]="usuarios.primerNombre"  placeholder="1r Nombre, máx 15 Caract."[ngModelOptions]="{standalone:true}" required>
+                           
+                            <input type="text"  *ngIf="Llenar2"  class="form-control-lg mt-3"[(ngModel)]="usuarios.primerNombre"  placeholder="1r Nombre, máx 15 Caract."[ngModelOptions]="{standalone:true}" required>
+
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="usuarios.segundoNombre"  placeholder="2do Nombre, máx 45 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="usuarios.tercerNombre"  placeholder="3r Nombre, máx 45 Caract."[ngModelOptions]="{standalone:true}">
+                             
+                               
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="usuarios.primerApellido"  placeholder="1r Apellido, máx 45 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.segundoApellido"  placeholder="2do apellido, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <select  type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.idTipoDocumento"  [ngModelOptions]="{standalone:true}" requered>
+                                
+                                <option *ngFor="let doc of tipoDocumento" [value]="doc.idTipoDocumento">{{doc.tipoDocumento}} </option>
+                                   </select>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.documento"  placeholder="documento, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.nit"  placeholder="nit, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="date" clac:\Users\lacon\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.htmlss="form-control form-control-lg " [(ngModel)]="usuarios.fechaNacimiento"  placeholder="fecha nacimiento, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.sexo"  placeholder="sexo, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.telefono"  placeholder="telefono, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.email"  placeholder="email, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="usuarios.direccion"  placeholder="direccion, máx 10 Caract."[ngModelOptions]="{standalone:true}" required>
+                           
+                           
+                          <!--  <input type="password" class="form-control form-control-lg " [(ngModel)]="usuarios.password"  placeholder="Password, máx 15 Caract."[ngModelOptions]="{standalone:true}" required>
+                        -->
+                            <div class="mt-3">
+                                <button type="text" class="btn btn-danger btn-lg mr-3" (click)="volver()">Volver</button>
+                                <button type="submit" class="btn btn-info btn-lg">{{tituloBotonAgregar}}</button> 
+                            </div>
+                        </form>
+                    </div>
+                    <button class="btn btn-danger btn-lg float-right" (click)="volverBienvenidaAdmin()"  >Volver a la Bienvenida</button>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</body>

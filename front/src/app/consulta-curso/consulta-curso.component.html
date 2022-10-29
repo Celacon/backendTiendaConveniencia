@@ -1,0 +1,89 @@
+<body>
+  
+
+
+    <div class="container-fluid ">
+     
+      <br>
+      <br>
+      <br>
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de Cursos
+        <h5 style="margin-top: 30px;" *ngIf="cursos.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      <button class="btn btn-dark btn-lg float-right" (click)="agregarBoton()">Agregar</button>
+      
+      <table *ngIf="cursos.length > 0" class="table table-dark table-striped ">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            
+            <th scope="col">Nombre</th>
+            <th scope="col">Sección</th>
+            <th scope="col">Día</th>
+            <th scope="col">Hora de Inicio</th>
+            <th scope="col">Hora de Finalización</th>
+            <th scope="col">Fecha de Inicio</th>
+            <th scope="col">Fecha de Finalización</th>
+            <th scope="col">IdProfesor</th>
+            <th scope="col"></th>
+          
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of cursos  | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row" >{{ datos.idcurso }}</th>
+           
+            <td>{{ datos.nombreCurso}}</td>
+            <td>{{ datos.seccion }}</td>
+            <td>{{ datos.dia }}</td>
+            <td>{{ datos.horaInicio }}</td>
+            <td>{{ datos.horaFinal }}</td>
+            <td>{{ datos.fechaInicio }}</td>
+            <td>{{ datos.fechaFinal  }}</td>
+            <td>
+
+              <select disabled=»disabled» class="table table-dark "  [(ngModel)]="datos.profesorIdprofesor"  [ngModelOptions]="{standalone:true}" required>
+                <option ></option>
+                <option *ngFor="let usu of profesores" [value]="usu.idprofesor">{{usu.usuario}} </option>
+                   </select>
+              
+              
+         
+                  
+
+            </td>
+            <td>
+              <i class="fas fa-trash btn btn-danger mr-2"(click)="eliminar(datos)"></i>
+            
+  
+  
+  
+            <i class="fas fa-user-edit btn btn-info"(click)="editar(datos)"></i>
+            </td>
+           
+            
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver a la Bienvenida</button>
+      
+      
+      
+        
+      
+       
+      
+      
+      
+        
+      
+      
+        
+      </div>
+  
+  </body>

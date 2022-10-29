@@ -1,0 +1,87 @@
+<body>
+ 
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>{{titulo}} 
+                            <div *ngIf="loading"class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </h3>             
+                            <form id="creacionForm">
+                           
+                         
+                            <input type="number"  disabled=»disabled» class="form-control form-control-lg " [(ngModel)]="asignaciones.idEmpleado"  placeholder="id Empleado"[ngModelOptions]="{standalone:true}"required >
+                            <input type="number" class="form-control form-control-lg " [(ngModel)]="asignaciones.idStatus"  placeholder="id Status Eempleado"[ngModelOptions]="{standalone:true}"required >
+                           
+                         <label>SELECCIONE UNA TIENDA Y TURNO</label>
+                            <select  type="text" class="form-control form-control-lg " [(ngModel)]="asignaciones.idTienda" [ngModelOptions]="{standalone:true}" requered>
+                                
+                                <option [ngValue]="objeto" *ngFor="let objeto of turnoTienda">{{objeto.tienda}}{{objeto.turno}}</option>
+                                 </select> 
+                        
+                            
+               
+                               
+                          
+                        </form>
+
+
+                        <form id="creacionForm22" (ngSubmit)="agregarAsignacion()">
+                        
+                            <input type="text"  *ngIf="Llenar2" disabled=»disabled» class="form-control-lg mt-3"[(ngModel)]="asignacionUsuario.idUsuario" placeholder="id usuario"[ngModelOptions]="{standalone:true}">
+
+                        
+                            <label>SELECCIONE UN ROL</label>
+                         <select  type="text" class="form-control form-control-lg " [(ngModel)]="asignacionUsuario.idRol" [ngModelOptions]="{standalone:true}" requered>
+                            <option ></option>
+                            <option *ngFor="let usu of rol" [value]="usu.idRol">{{usu.rol}}</option>
+   
+                             </select> 
+                            
+
+                           
+
+                          
+
+                         <!--    <select  type="text" disabled=»disabled»  class="form-control form-control-lg " [(ngModel)]="asignacionUsuario.idPersona" [ngModelOptions]="{standalone:true}" requered>
+                                <option >{{asignacionUsuario.primerNombre}}</option>
+       
+                                 </select> 
+                                -->
+                             <input type="text"  class="form-control form-control-lg "disabled=»disabled» [(ngModel)]="asignacionUsuario.idPersona"  placeholder="idPersona"[ngModelOptions]="{standalone:true}"required >
+                             <label>{{asignacionUsuario.primerNombre}}</label>
+                        
+
+                        <input type="text"  class="form-control form-control-lg " [(ngModel)]="asignacionUsuario.usuario"  placeholder="usuario"[ngModelOptions]="{standalone:true}"required >
+                           
+                             <input type="password" class="form-control form-control-lg " [(ngModel)]="asignacionUsuario.clave"  placeholder="clave"[ngModelOptions]="{standalone:true}" required>
+                             <input type="text"  class="form-control form-control-lg " [(ngModel)]="asignacionUsuario.idStatus"  placeholder="idStatusUsuario"[ngModelOptions]="{standalone:true}"required >
+                         
+
+
+
+                                   
+                                   <div class="mt-3">
+                                    <button type="text" class="btn btn-danger btn-lg mr-3" (click)="volver()">Volver</button>
+                                    <button type="submit" class="btn btn-info btn-lg">{{tituloBotonAgregar}}</button> 
+                                </div>
+                          
+                        </form>
+                        
+                       
+                    </div>
+                    <button class="btn btn-danger btn-lg float-right" (click)="volverBienvenidaAdmin()"  >Volver a la Bienvenida</button>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</body>
+
+

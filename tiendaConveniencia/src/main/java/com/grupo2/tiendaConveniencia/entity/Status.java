@@ -23,7 +23,7 @@ public class Status implements Serializable{
 	 */
 	private static final long serialVersionUID = 5935461743965123819L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	
 	@Column(name = "ID_STATUS")

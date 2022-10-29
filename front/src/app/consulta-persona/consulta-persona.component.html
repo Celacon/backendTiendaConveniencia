@@ -1,0 +1,123 @@
+
+
+
+<body>
+    <br>
+    <br>
+  <!--  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  
+  <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">BUSQUEDA</a>
+      
+      <div class="collapse navbar-collapse" id="mynavbar">
+       
+        <form class="d-flex" >
+          <input class="form-control me-2" type="text" placeholder="Nombre" [(ngModel)]="usuariosB.nombreProfesor" [ngModelOptions]="{standalone:true}" required>
+          <input class="form-control me-2" type="text" placeholder="Apellido"[(ngModel)]="usuariosB.apellidoProfesor" [ngModelOptions]="{standalone:true}" required>
+         
+          <button (click)="buscar()" class="btn btn-primary">BUSCAR</button>
+        </form>
+      </div>
+    </div>
+  </nav>-->
+  <br>
+  
+  
+    <div class="container-fluid ">
+     
+      
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de Personas
+        <h5 style="margin-top: 30px;" *ngIf="usuarios.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      <button class="btn btn-dark btn-lg float-right" (click)="agregarBoton()">Agregar</button>
+      
+      <table *ngIf="usuarios.length > 0" class="table table-dark table-striped " margin="0 auto" >
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+           
+            <th scope="col">1NOMBRE</th>
+            <th scope="col">2NOMBRE</th>
+         
+       
+            <th scope="col">1APELLIDO</th>
+            <th scope="col">2APELLIDO</th>
+            <th scope="col">TD</th>
+            <th scope="col">doc--</th>
+            <th scope="col">NIT</th>
+            <th scope="col">F NAC</th>
+            <th scope="col">SEXO</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">DIRECCION</th>
+            <th scope="col"></th>
+          
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of usuarios  | paginate:{ itemsPerPage: 10, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ datos.idPersona }}</th>
+          
+            <td>{{ datos.primerNombre}}</td>
+            <td>{{ datos.segundoNombre}}</td>
+       
+        
+            <td>{{ datos.primerApellido }}</td>
+            <td>{{ datos.segundoApellido }}</td>
+            <td>{{ datos.idTipoDocumento }}</td>
+            <td>{{ datos.documento }}</td>
+            <td>{{ datos.nit }}</td>
+            <td>{{ datos.fechaNacimiento }}</td>
+            <td>{{ datos.sexo }}</td>
+            <td>{{ datos.telefono }}</td>
+            <td>{{ datos.email }}</td>
+            <td>
+
+            <select  type="text" class="form-control form-control-lg " >
+            
+              <option >{{datos.direccion}} </option>
+                 </select>
+
+                </td>
+
+
+
+
+
+            <td>
+              <i class="fas fa-trash btn btn-danger mr-2"(click)="eliminar(datos)"></i>
+            
+  
+  
+  
+            <i class="fas fa-user-edit btn btn-info"(click)="editar(datos)"></i>
+            </td>
+           
+            
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver a la Bienvenida</button>
+      
+      
+      
+        
+      
+       
+      
+      
+      
+        
+      
+      
+        
+      </div>
+  
+  </body>
+  
+  

@@ -17,6 +17,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "TBL_EMPLEADO")
 public class Empleado implements Serializable{
@@ -35,7 +39,9 @@ public class Empleado implements Serializable{
 	
 	@Column(name = "ID_PERSONA")
 	private Integer idPersonae;
-
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")  
+    @JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_INGRESO")
 	private Date fechaIngreso;
 	

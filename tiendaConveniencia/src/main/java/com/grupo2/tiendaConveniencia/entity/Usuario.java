@@ -11,33 +11,38 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TBL_USUARIO")
-public class Usuario implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6863792812882245373L;
+@Table(name="tbl_usuario")
+public class Usuario implements Serializable {
 	
+
+
+
+	private static final long serialVersionUID = -1860374313456226261L;
+	      
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name = "ID_USUARIO")
+	@Basic(optional = false)		
+	@Column(name = "id_usuario")	
 	private Integer idUsuario;
 	
-	@Column(name = "ID_PERSONA")
+	@Basic(optional = false)
+	@Column(name = "id_persona")	
 	private Integer idPersona;
 	
-	@Column(name = "ID_ROL")
+	@Basic(optional = false)
+	@Column(name = "id_rol")	
 	private Integer idRol;
 	
-	@Column(name = "USUARIO")
+	@Basic(optional = false)
+	@Column(name = "usuario")	
 	private String usuario;
 	
-	@Column(name = "CLAVE")
+	@Basic(optional = false)
+	@Column(name = "clave")	
 	private String clave;
 	
-	@Column(name = "ID_STATUS")
+	@Basic(optional = false)
+	@Column(name = "id_status")	
 	private Integer idStatus;
 
 	public Integer getIdUsuario() {
@@ -87,6 +92,7 @@ public class Usuario implements Serializable{
 	public void setIdStatus(Integer idStatus) {
 		this.idStatus = idStatus;
 	}
-
-
+	
+	
+	
 }

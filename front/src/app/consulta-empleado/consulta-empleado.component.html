@@ -1,0 +1,120 @@
+<body>
+    <br>
+    <br>
+
+  <br>
+  
+  
+    <div class="container-fluid ">
+     
+      
+      <h1 class="h3  btn-dark btn-lg justify-content-center">Listado de Empleados Sin Asignacion ni usuario
+        <h5 style="margin-top: 30px;" *ngIf="empleado.length == 0">No hay datos para mostrar</h5>
+      </h1>
+      <button class="btn btn-dark btn-lg float-right" (click)="agregarBoton()">Agregar</button>
+      
+      <table *ngIf="empleado.length > 0" class="table table-dark table-striped " margin="0 auto" >
+          <thead>
+          <tr>
+          
+          
+          
+          
+            <th scope="col">#</th>
+           
+         
+            <th scope="col">F.INGRESO</th>
+         
+       
+            <th scope="col">STATUS</th>
+       
+            <th scope="col">NOM 1</th>
+            <th scope="col">NOM 2</th>
+         
+       
+            <th scope="col">APE 1</th>
+            <th scope="col">APE 2</th>
+       
+            <th scope="col">DOC</th>
+            <th scope="col">NIT</th>
+            <th scope="col">F NACIMIEN</th>
+        
+            <th scope="col">TELEFONO</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">DIRECCION</th>
+            <th scope="col"></th>
+          
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let datos of empleado  | paginate:{ itemsPerPage: 5, currentPage: paginaActual }" >
+            <th id="aaa" scope="row">{{ datos.idEmpleado }}</th>
+            <td>{{ datos.fechaIngreso}}</td>
+            <td>{{ datos.idStatus }}</td>   
+      
+            <td>{{ datos.primerNombre}}</td>
+            <td>{{ datos.segundoNombre}}</td>     
+            <td>{{ datos.primerApellido }}</td>
+            <td>{{ datos.segundoApellido }}</td>
+       
+            <td>{{ datos.documento }}</td>
+            <td>{{ datos.nit }}</td>
+            <td>{{ datos.fechaNacimiento }}</td>
+         
+            <td>{{ datos.telefono }}</td>
+            <td>{{ datos.email }}</td>
+            <td>
+
+            <select  type="text" class="form-control form-control-lg " >
+            
+              <option >{{datos.direccion}} </option>
+                 </select>
+
+                </td>
+
+        
+        
+
+
+
+
+
+            <td>
+              <i class="fas fa-trash btn btn-danger mr-2"(click)="eliminar(datos)"></i>
+              <i class="fas fa-user-edit btn btn-info"(click)="editar(datos)"></i>
+             
+              
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning" (click)="asignarUsuarioTurno(datos)">USUARIO,TURNO</button>
+
+            </td>
+           
+            
+          </tr>
+          </tbody>
+        </table>
+        <ul  >
+          <pagination-controls class="a" (pageChange)="paginaActual = $event"></pagination-controls>
+        </ul>
+        
+       
+        <button class="btn btn-danger btn-lg float-right" routerLink="/bienvenidaAdmin">Volver a la Bienvenida</button>
+      
+      
+      
+        
+      
+       
+      
+      
+      
+        
+      
+      
+        
+      </div>
+  
+  </body>
+  
+  

@@ -1,6 +1,7 @@
 package com.grupo2.tiendaConveniencia.entity;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -10,6 +11,10 @@ import javax.persistence.Entity;
 //import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "V_EMPLEADOS_ASIGNADOS")
@@ -32,6 +37,8 @@ public class VEmpleadosAsignados implements Serializable{
 	@Column(name = "STATUS")
 	private String status;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_INGRESO")
 	private Date fechaIngreso;
 
@@ -65,6 +72,8 @@ public class VEmpleadosAsignados implements Serializable{
 	@Column(name = "NIT")
 	private String nit;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "FECHA_NACIMIENTO")
 	private Date fechaNacimiento;
 	
@@ -106,14 +115,18 @@ public class VEmpleadosAsignados implements Serializable{
 	private Integer idTurno;
 	
 	@Column(name = "TURNO")
+	
+
 	private String turno;
+	
+
 	
 	
 	@Column(name = "INICIA_TURNO")
-	private Date iniciaTurno;
-	
+	private String iniciaTurno;
+	  
 	@Column(name = "FIN_TURNO")
-	private Date finTurno;
+	private String finTurno;
 
 	public Integer getIdEmpleado() {
 		return idEmpleado;
@@ -340,21 +353,24 @@ public class VEmpleadosAsignados implements Serializable{
 		this.turno = turno;
 	}
 
-	public Date getIniciaTurno() {
-		return iniciaTurno;
-	}
+    public String getIniciaTurno() {
+        return iniciaTurno;
+    }
 
-	public void setIniciaTurno(Date iniciaTurno) {
-		this.iniciaTurno = iniciaTurno;
-	}
+    public void setIniciaTurno(String iniciaTurno) {
+        this.iniciaTurno = iniciaTurno;
+    }
 
-	public Date getFinTurno() {
-		return finTurno;
-	}
+    public String getFinTurno() {
+        return finTurno;
+    }
 
-	public void setFinTurno(Date finTurno) {
-		this.finTurno = finTurno;
-	}
+    public void setFinTurno(String finTurno) {
+        this.finTurno = finTurno;
+    }
+
+
+
 	
 
 	

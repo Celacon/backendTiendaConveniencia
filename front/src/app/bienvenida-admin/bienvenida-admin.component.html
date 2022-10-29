@@ -1,0 +1,144 @@
+<body>
+    <br><br><br><br>
+    <div class="container-fluid">
+      <span class="h3  btn-dark btn-lg ">Bienvenido  {{usuario.usuario}}</span>
+     
+      
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+         
+          <!-- Links -->
+          <ul class="navbar-nav">
+         
+        
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             PERSONAS
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionPersona()">CREACION DE PERSONA</a>
+                  <a class="dropdown-item" href="/consultaPersona">CONSULTA DE PERSONAS</a>
+                 
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             EMPLEADO
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionEmpleado()">CREACION DE EMPLEADO</a>
+                  <a class="dropdown-item" href="/consultaEmpleado">CONSULTA DE EMPLEADOS NO ASIGNADOS</a>
+                  <a class="dropdown-item" href="/empleadosAsignados">CONSULTA DE EMPLEADOS ASIGNADOS</a>
+                  <a class="dropdown-item" href="/consultaRol">CONSULTA DE ROL</a>
+                  <a class="dropdown-item" href="/creacionRol">CREACION DE ROL</a>
+                  <a class="dropdown-item" href="/consultaTurno">CONSULTA DE TURNO </a>
+                  <a class="dropdown-item" href="/creacionTurno">CREACION DE TURNO </a>
+               
+                 
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             DOCUMENTO
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="creacionDocumento()">CREACION DOCUMENTO</a>
+                <a class="dropdown-item" href="/consultaTipoDocumento">CONSULTA DE TIPO DOCUMENTO</a>
+               
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             TIENDA
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/consutaTurnoTienda">CONSULTA DE TURNO tienda</a>
+                <a class="dropdown-item" href="/creacionTurnoTienda">CREACION DE TURNO tienda </a>
+               
+                
+      
+               
+              </div>
+            </li>
+          <!--  <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown" aria-expanded="true">
+             ASIGNACIÓN
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="creacionAsignaciones()">CREACION DE ASIGNACIONES</a>
+                  <a class="dropdown-item" href="/consultaAsignacion">CONSULTA DE ASIGNACIONES</a>
+               
+                
+      
+               
+              </div>
+            </li>-->
+            <button type="button" class="btn btn-danger btn-lg float-right" (click)="salir()">SALIR</button>
+          </ul>
+        </nav>
+        <br>
+          
+      
+      </div>
+
+      <section class="cards">
+
+        <article class="card card--1">  
+           
+            <div class="card__img"></div>
+            <a  class="card_link">
+                <div class="card__img--hover"></div>
+            </a>
+            <div class="card__info">
+                <span class="card__category">UNIVERSIDAD MARIANO GALVEZ DE GUATEMALA</span>
+                <br>
+                <span class="card__by">ALUMNO: <a href="" class="card__author" title="">GRUPO 2</a></span>
+                <br>
+              
+                <br>
+                <span class="card__by">CURSO: <a href="" class="card__author" title="">BASE DE DATOS I</a></span>
+                <br>
+                <span class="card__by">SECCIÓN: <a href="" class="card__author" title="">"A"</a></span>
+            </div>
+        </article>
+        
+     
+        
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+</body>
+
+
+
+
+
+
+
+ 

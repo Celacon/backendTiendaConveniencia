@@ -1,0 +1,68 @@
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>{{titulo}} 
+                            <div *ngIf="loading"class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </h3>
+                        
+                        <form id="creacionForm" (ngSubmit)="agregarEmpleado()">
+                            <input type=»text» *ngIf="Llenar"disabled=»disabled»  class="form-control-lg mt-3" [(ngModel)]="empleado.idEmpleado"placeholder="Id"[ngModelOptions]="{standalone:true}" >
+
+
+                           <!-- 
+                            <input type=»text»  *ngIf="Llenar2" class="form-control-lg mt-3" [(ngModel)]="usuarios.idPersona"placeholder="Id"[ngModelOptions]="{standalone:true}" required>
+                            
+                           --> <input type="date"   class="form-control form-control-lg"[(ngModel)]="empleado.fechaIngreso"  placeholder="fECHA DE INGESO."[ngModelOptions]="{standalone:true}" required>
+                    
+                            <input type="text"    class="form-control form-control-lg"[(ngModel)]="empleado.idStatus"  placeholder="STATUS"[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="empleado.persona.primerNombre"  placeholder="pRIMER NOMBRE."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="empleado.persona.segundoNombre"  placeholder="2do Nombre."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="empleado.persona.tercerNombre"  placeholder="3r Nombre"[ngModelOptions]="{standalone:true}">
+                             
+                               
+                            <input type="text" class="form-control form-control-lg" [(ngModel)]="empleado.persona.primerApellido"  placeholder="1r Apellido"[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.segundoApellido"  placeholder="2do apellido,."[ngModelOptions]="{standalone:true}" required>
+                            <select  type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.idTipoDocumento"  [ngModelOptions]="{standalone:true}" requered>
+                                
+                                <option *ngFor="let doc of tipoDocumento" [value]="doc.idTipoDocumento">{{doc.tipoDocumento}} </option>
+                                   </select>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.documento"  placeholder="documento."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.nit"  placeholder="nit."[ngModelOptions]="{standalone:true}" required>
+                            
+                            <input type="date" class="form-control form-control-lg " [(ngModel)]="empleado.persona.fechaNacimiento"  placeholder="FECHA nACIMIENTO"[ngModelOptions]="{standalone:true}" required>
+                           
+                            <select  type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.sexo"  [ngModelOptions]="{standalone:true}" requered>
+                                
+                                <option value="M">M </option>
+                                <option value="F">F </option>
+                                   </select>
+                                   <input type="number" class="form-control form-control-lg " [(ngModel)]="empleado.persona.telefono"  placeholder="telefonO"[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.email"  placeholder="email."[ngModelOptions]="{standalone:true}" required>
+                            <input type="text" class="form-control form-control-lg " [(ngModel)]="empleado.persona.direccion"  placeholder="direccion"[ngModelOptions]="{standalone:true}" required>
+                           
+                       
+                            <div class="mt-3">
+                                <button type="text" class="btn btn-danger btn-lg mr-3" (click)="volver()">Volver</button>
+                                <button type="submit" class="btn btn-info btn-lg mr-3">{{tituloBotonAgregar}}</button> 
+                            </div>
+                        </form>
+                    </div>
+                    <button class="btn btn-danger btn-lg float-right" (click)="volverBienvenidaAdmin()"  >Volver a la Bienvenida</button>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</body>

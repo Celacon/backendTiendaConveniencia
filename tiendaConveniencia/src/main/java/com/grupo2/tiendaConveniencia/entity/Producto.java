@@ -35,7 +35,7 @@ public class Producto implements Serializable{
 	private String producto;
 	
 	@Column(name = "ID_STATUS")
-	private Integer idStatus;
+	private Integer stsProducto;
 	
 	@Column(name = "PRECIO")
 	private Double precio;
@@ -74,14 +74,12 @@ public class Producto implements Serializable{
 		this.producto = producto;
 	}
 
-	
-
-	public Integer getIdStatus() {
-		return idStatus;
+	public Integer getStsProducto() {
+		return stsProducto;
 	}
 
-	public void setIdStatus(Integer idStatus) {
-		this.idStatus = idStatus;
+	public void setStsProducto(Integer stsProducto) {
+		this.stsProducto = stsProducto;
 	}
 
 	public Double getPrecio() {
